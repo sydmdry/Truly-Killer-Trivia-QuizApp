@@ -3,10 +3,19 @@ let data = STORE;
 let questionCount = 0;
 let score = 0;
 
-function beginQuiz(){
-}
 
+//User starts the quiz
+function beginQuiz(){
+  $('.createForm').on('click', '.beginButton',
+  function(event){
+    $('.startQuiz').remove();
+    $('main').append(renderQuestion);
+  });
+};
+
+//Render Question after quiz start
 function renderQuestion(){
+  
 }
 
 function updateScoreQuestion(){
@@ -20,4 +29,10 @@ function wrongAnswer(){
 
 function restartQuiz(){
 }
+
+
+function handleQuizApp(){
+  beginQuiz();
+}
+$(handleQuizApp);
 

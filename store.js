@@ -1,5 +1,4 @@
 const STORE = [
- questions: [
   {
     question: 'Which murderer was famously known as the "Killer Clown"?',
     answer: [
@@ -70,5 +69,4 @@ const STORE = [
     ],
     correct: "I don't like Mondays."
   }
- ]
 ];
