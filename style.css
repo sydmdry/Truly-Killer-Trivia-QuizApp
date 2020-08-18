@@ -6,6 +6,12 @@
   padding:0;
 }
 
+/*background*/
+body {
+  background-image: url(images/background.jpg);
+  color: white;
+}
+
 
 /*header*/
 
@@ -13,10 +19,11 @@ header {
   width: 100%;
   text-align: center;
   padding: 15px 0;
+  font-family: 'Jim Nightshade', cursive;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 75px;
 }
 
 /*Question: Score:*/
@@ -29,39 +36,80 @@ ul {
 ul li {
   list-style: none;
   padding: 0 20px;
-  font-size: 20px;
+  font-size: 35px;
 }
 
 /*Start Screen*/
 
-.createForm {
-  border: 2px solid black;
+.box {
+  border: 2px solid white;
   padding: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 0 10px;
+  margin: 3px 10px;
+  font-family: 'IM Fell DW Pica SC', serif;
 }
 
 .startQuiz h2 {
-  font-size: 25px;
+  font-size: 39px;
   margin-bottom: 10px;
 }
 
 .startQuiz p {
-  font-size: 20px;
+  font-size: 31px;
   margin: 17px;
 }
 
 /*begin button*/
 
 .startQuiz button {
+  font-size: 19px;
   margin: 15px 5px 0 0;
   padding: 5px 10px;
 }
 
+/*Form Styling*/
 
+form h2 {
+  margin-bottom: 11px;
+  font-size: 37px;
+}
 
+form label {
+  font-size: 29px;
+}
+
+form .submitButton, .feedback .continueButton, .quizEnd .tryAgain{
+  font-size: 17px;
+  margin-top: 15px;
+  padding: 3px 13px;
+}
+
+/*Feedback Styling*/
+.feedback {
+  text-align: center;
+}
+
+.feedback h3 {
+  font-size: 37px;
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+
+/*end of quiz*/
+.quizEnd{
+  text-align: center;
+}
+
+.quizEnd h3{
+  font-size: 49px;
+  font-family: 'Jim Nightshade', cursive;
+}
+
+/*button margin*/
+.feedback .continueButton, .quizEnd .tryAgain{
+  margin-bottom: 10px;
+}
 
 
