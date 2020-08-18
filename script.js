@@ -7,8 +7,7 @@ let currentQuestion = 0;
 
 //User starts the quiz
 function beginQuiz(){
-  $('.createForm').on('click', '.beginButton',
-  function(event){
+  $('.startQuiz').on('click', '.beginButton', function(event){
     $('.startQuiz').hide();
     $('main').append(renderQuestion);
     updateQuestionNum();
@@ -29,21 +28,22 @@ function createQuestion(currentQuestion){
   $('.createForm').html(
     `<form role = "form" class = "formQuiz">
         <h2>${data[currentQuestion].question}</h2>
-          <input name="option" type="radio" value = "${data[currentQuestion].answer[0]}" checked>
-          <label for="answer">${data[currentQuestion].answer[0]}</label><br>
+          <input name="option" type="radio" value = "${data[currentQuestion].answer[0]}" required>
+          <label for="option">${data[currentQuestion].answer[0]}</label><br>
           <input name="option" type="radio" value = "${data[currentQuestion].answer[1]}">        
-          <label for="answer">${data[currentQuestion].answer[1]}</label><br>
+          <label for="option">${data[currentQuestion].answer[1]}</label><br>
           <input name="option" type="radio" value = "${data[currentQuestion].answer[2]}">
           <label for="option">${data[currentQuestion].answer[2]}</label><br>
           <input name="option" type="radio" value = "${data[currentQuestion].answer[3]}">
-          <label for="answer">${data[currentQuestion].answer[3]}</label><br>
-            <button type="button" class="submitButton">Submit</button>
+          <label for="option">${data[currentQuestion].answer[3]}</label><br>
+            <button type="submit" class="submitButton">Submit</button>
       </form>`
   )
 }
 
 function submitAnswer(){
-  $('.createForm').on('click', '.submitButton', function(event){
+  $('.createForm').on('submit', function(event){
+    event.preventDefault();
     renderAppropriateFeedback();
   });
 }
@@ -97,7 +97,7 @@ function correctAnswer(){
   $('.box').hide();
   $('.feedback').html(
     `<h3>Wow! You're Sharp!</h3>
-      <img src = 'images/knife.gif' alt = 'Dexter Morgan cleaning a knife'><br>
+      <img src = 'images/knife.gif' alt = 'Dexter Morgan cleaning a knife' class = 'gif'><br>
       <button type = 'button' class = 'continueButton'>Continue...</button>`);
   updateScore();
 }
@@ -106,7 +106,7 @@ function wrongAnswer(){
   $('.box').hide();
   $('.feedback').html(
     `<h3>Oops! Better luck next time!<br>The correct answer was "${data[currentQuestion].correct}"</h3>
-      <img src = 'images/oliviabenson.gif' alt = 'Olivia Benson shaking her head and walking away.'><br>
+      <img src = 'images/oliviabenson.gif' alt = 'Olivia Benson shaking her head and walking away.' class = 'gif'><br>
       <button type = 'button' class = 'continueButton'>Continue...</button>`);
 }
 
@@ -127,13 +127,14 @@ function endOfQuiz(){
   $('.feedback').hide();
   $('.quizEnd').show();
   $('.quizEnd').html(
-    `<h3>You Made It!<br><img src = 'images/batesmotel.gif' alt = 'Sherrif Alex Romero saying cheers and clinking glasses with Norma Bates.'><br>Your final score is ${score}/7</h3><button type = 'button' class = 'tryAgain'>Try Again?</button>`
+    `<h3>You Made It!<br><img src = 'images/batesmotel.gif' alt = 'Sherrif Alex Romero saying cheers and clinking glasses with Norma Bates.' class = 'gif'><br>Your final score is ${score}/7</h3><button type = 'button' class = 'tryAgain'>Try Again?</button>`
   )
 }
 
 
 function restartQuiz(){
    $('.quizEnd').on('click', '.tryAgain', function(event){
+    currentQuestion = 0;
     resetQuestionNum();
     resetScore();
     $('.quizEnd').hide();

@@ -41,7 +41,7 @@ ul li {
 
 /*Start Screen*/
 
-.box {
+main {
   border: 2px solid white;
   padding: 12px;
   display: flex;
@@ -112,4 +112,8 @@ form .submitButton, .feedback .continueButton, .quizEnd .tryAgain{
   margin-bottom: 10px;
 }
 
-
+/*manage gif size*/
+.gif{
+  max-width: 95%;
+  height: auto;
+}
